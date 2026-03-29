@@ -22,15 +22,9 @@ export function SiteHeader() {
       <div className="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
         <div className="surface-panel flex items-center justify-between gap-4 rounded-full px-5 py-4">
           <Link href="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
-            <div className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-sm font-semibold tracking-[0.35em] text-[var(--color-cream)] transition-transform duration-300 group-hover:scale-105">
-              NB
-            </div>
             <div>
-              <p className="font-serif-display text-lg leading-none text-[var(--color-cream)]">
-                Noir Bloom
-              </p>
-              <p className="text-[10px] uppercase tracking-[0.3em] text-[var(--color-mist)]">
-                Studio
+              <p className="font-serif-display text-[1.65rem] leading-none tracking-[0.08em] text-[var(--color-cream)] transition-transform duration-300 group-hover:translate-x-0.5">
+                Noir Bloom Studio
               </p>
             </div>
           </Link>
