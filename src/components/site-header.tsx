@@ -20,12 +20,16 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50">
       <div className="mx-auto max-w-7xl px-4 pt-4 sm:px-6 lg:px-8">
-        <div className="surface-panel flex items-center justify-between gap-4 rounded-full px-5 py-4">
+        <div className="flex items-center justify-between gap-4 border-b border-[var(--color-border)] px-1 py-4">
           <Link href="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
-            <div>
-              <p className="font-serif-display text-[1.65rem] leading-none tracking-[0.08em] text-[var(--color-cream)] transition-transform duration-300 group-hover:translate-x-0.5">
-                Noir Bloom Studio
+            <div className="brand-mark">
+              <p className="brand-mark-kicker">Warm Beauty Boutique</p>
+              <p className="brand-mark-title transition-transform duration-300 group-hover:translate-x-0.5">
+                Noir Bloom
               </p>
+              <div className="brand-mark-detail">
+                <span>Studio</span>
+              </div>
             </div>
           </Link>
 
@@ -34,10 +38,10 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`rounded-full px-4 py-2 text-sm transition-all duration-300 ${
+                className={`px-4 py-2 text-sm uppercase tracking-[0.22em] transition-all duration-300 ${
                   isCurrent(pathname, item.href)
-                    ? "bg-white/10 text-[var(--color-cream)]"
-                    : "text-[var(--color-mist)] hover:bg-white/5 hover:text-[var(--color-cream)]"
+                    ? "text-[var(--color-cream)]"
+                    : "text-[var(--color-mist)] hover:text-[var(--color-cream)]"
                 }`}
               >
                 {item.label}

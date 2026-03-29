@@ -1,69 +1,80 @@
 import Link from "next/link";
 import { CtaBanner } from "@/components/cta-banner";
 import { Reveal } from "@/components/reveal";
-import { SectionHeading } from "@/components/section-heading";
 import { bookingLinks, fullServices } from "@/data/site";
 
 const process = [
-  "Mood alignment and style direction",
-  "Precision prep with a comfort-first pacing",
-  "Finish refinement for close-up worthy results",
+  "Mood alignment and visual direction",
+  "Comfort-first prep with quiet, unhurried pacing",
+  "Finishing passes that hold up in real life and close-up content",
 ];
 
 export default function ServicesPage() {
   return (
     <main className="pb-20">
       <section className="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8 lg:pt-24">
-        <Reveal>
-          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-end">
-            <SectionHeading
-              eyebrow="Services"
-              title="Luxury beauty rituals designed for polish, presence and repeat bookings."
-              description="Each service balances aesthetic precision with a slower, more considered experience. The menu is concise, premium and built to feel desirable before the appointment even begins."
-            />
-            <div className="surface-panel rounded-[32px] p-6 sm:p-8">
-              <p className="text-sm uppercase tracking-[0.3em] text-[var(--color-gold)]">
-                Signature flow
+        <div className="grid gap-10 border-t border-[var(--color-border)] pt-16 xl:grid-cols-[0.78fr_1.22fr]">
+          <Reveal>
+            <div>
+              <p className="editorial-label">Service Edit</p>
+              <h1 className="section-title mt-5">
+                A warmer, tighter menu designed to feel bespoke rather than busy.
+              </h1>
+            </div>
+          </Reveal>
+
+          <Reveal delay={100}>
+            <div className="grid gap-8 lg:grid-cols-[1fr_0.95fr]">
+              <p className="section-copy">
+                The menu is written like a boutique offering. Fewer services, clearer
+                positioning and better pacing make the experience feel premium before
+                a client even reaches the booking step.
               </p>
-              <div className="mt-6 space-y-4">
+
+              <div className="space-y-6 border-l border-[var(--color-border)] pl-6">
                 {process.map((item, index) => (
-                  <div key={item} className="flex gap-4 rounded-[24px] border border-white/10 bg-white/[0.03] p-4">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/10 text-sm text-[var(--color-cream)]">
+                  <article key={item}>
+                    <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[var(--color-gold)]">
                       0{index + 1}
-                    </div>
-                    <p className="text-sm leading-7 text-[var(--color-mist)]">{item}</p>
-                  </div>
+                    </p>
+                    <p className="mt-3 text-sm leading-8 text-[var(--color-mist)]">
+                      {item}
+                    </p>
+                  </article>
                 ))}
               </div>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
       </section>
 
       <section className="mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-5 lg:grid-cols-2">
+        <div className="divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
           {fullServices.map((service, index) => (
-            <Reveal key={service.name} delay={index * 70}>
-              <article className="service-card h-full rounded-[30px] p-7 sm:p-8">
-                <div className="flex items-start justify-between gap-6">
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.35em] text-[var(--color-gold)]">
-                      {service.duration}
-                    </p>
-                    <h2 className="mt-3 font-serif-display text-3xl text-[var(--color-cream)]">
-                      {service.name}
-                    </h2>
-                  </div>
-                  <p className="text-lg text-[var(--color-cream)]">{service.price}</p>
+            <Reveal key={service.name} delay={index * 60}>
+              <article className="service-row service-row-detailed">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.34em] text-[var(--color-gold)]">
+                    {service.duration}
+                  </p>
+                  <h2 className="mt-3 font-serif-display text-[2.15rem] leading-none text-[var(--color-cream)] sm:text-[2.5rem]">
+                    {service.name}
+                  </h2>
                 </div>
-                <p className="mt-5 text-sm leading-8 text-[var(--color-mist)]">{service.blurb}</p>
-                <div className="mt-8 flex items-center justify-between gap-4 border-t border-white/8 pt-6">
-                  <span className="text-xs uppercase tracking-[0.3em] text-[var(--color-mist)]">
-                    Premium care
-                  </span>
-                  <Link href={bookingLinks.primary} className="button-secondary">
-                    Book now
-                  </Link>
+
+                <div className="service-row-meta">
+                  <p className="service-price">{service.price}</p>
+                  <p className="text-sm leading-8 text-[var(--color-mist)]">
+                    {service.blurb}
+                  </p>
+                  <div className="mt-2 flex flex-wrap gap-3">
+                    <Link href={bookingLinks.primary} className="button-secondary">
+                      Book this service
+                    </Link>
+                    <span className="inline-flex items-center text-xs uppercase tracking-[0.3em] text-[var(--color-mist)]">
+                      Warm luxury care
+                    </span>
+                  </div>
                 </div>
               </article>
             </Reveal>
@@ -71,10 +82,10 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      <div className="mt-20">
+      <div className="mt-24">
         <CtaBanner
-          title="Build your service mix around events, content days or a monthly ritual."
-          text="The menu is designed to convert beautifully online while still feeling realistic and bookable as a modern boutique experience."
+          title="Build a ritual around content days, events or a monthly beauty reset."
+          text="The service structure stays realistic and bookable, but the presentation now feels much closer to a considered boutique brand."
         />
       </div>
     </main>

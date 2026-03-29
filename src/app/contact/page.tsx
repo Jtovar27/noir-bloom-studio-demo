@@ -1,26 +1,25 @@
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
-import { SectionHeading } from "@/components/section-heading";
 import { bookingLinks, faqs } from "@/data/site";
 
 const contactCards = [
   {
     title: "Bookings",
-    body: "Reserve appointments, private sessions or event prep bookings.",
+    body: "Reserve appointments, private sessions or event preparation with a direct email flow.",
     href: bookingLinks.primary,
     label: "Email the studio",
   },
   {
     title: "Consultations",
-    body: "Request custom nail concepts, group bookings or campaign-ready styling.",
+    body: "Request custom nail concepts, group bookings or campaign-ready service mixes.",
     href: bookingLinks.consultation,
-    label: "Ask for a consultation",
+    label: "Request consultation",
   },
   {
     title: "Direct line",
-    body: "For quick availability checks and premium service inquiries.",
+    body: "Use the phone line for fast availability checks and warm, high-touch inquiries.",
     href: bookingLinks.phone,
-    label: "Call the studio",
+    label: "Call Noir Bloom",
   },
 ];
 
@@ -28,29 +27,35 @@ export default function ContactPage() {
   return (
     <main className="pb-20">
       <section className="mx-auto max-w-7xl px-4 pt-16 sm:px-6 lg:px-8 lg:pt-24">
-        <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="grid gap-10 border-t border-[var(--color-border)] pt-16 xl:grid-cols-[0.8fr_1.2fr]">
           <Reveal>
-            <SectionHeading
-              eyebrow="Contact"
-              title="A booking flow that feels polished, warm and ready for real clients."
-              description="For this demo, contact actions are intentionally functional: email booking, consultation requests and direct phone contact all work without placeholder dead ends."
-            />
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href={bookingLinks.instagram} className="button-secondary">
-                Instagram preview
-              </Link>
-              <Link href={bookingLinks.primary} className="button-primary">
-                Start a booking
-              </Link>
+            <div>
+              <p className="editorial-label">Contact</p>
+              <h1 className="section-title mt-5">
+                A booking experience that feels warm, functional and actually real.
+              </h1>
             </div>
           </Reveal>
 
           <Reveal delay={100}>
-            <div className="surface-panel rounded-[34px] p-6 sm:p-8">
-              <p className="text-sm uppercase tracking-[0.35em] text-[var(--color-gold)]">
-                Studio details
-              </p>
-              <div className="mt-6 space-y-5 text-sm leading-8 text-[var(--color-mist)]">
+            <div className="grid gap-8 lg:grid-cols-[1fr_0.82fr]">
+              <div>
+                <p className="section-copy">
+                  Contact actions are intentionally simple and usable. No empty links,
+                  no fake form shell, no dead-end CTAs. The page behaves like a real
+                  premium boutique site should.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <Link href={bookingLinks.primary} className="button-primary">
+                    Start a booking
+                  </Link>
+                  <Link href={bookingLinks.instagram} className="button-secondary">
+                    Instagram preview
+                  </Link>
+                </div>
+              </div>
+
+              <div className="space-y-5 border-l border-[var(--color-border)] pl-6 text-sm leading-8 text-[var(--color-mist)]">
                 <p>Monday to Saturday</p>
                 <p>10:00 AM to 7:00 PM</p>
                 <p>Private boutique setting, by appointment only</p>
@@ -61,37 +66,42 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="mx-auto mt-16 grid max-w-7xl gap-5 px-4 sm:px-6 lg:grid-cols-3 lg:px-8">
-        {contactCards.map((item, index) => (
-          <Reveal key={item.title} delay={index * 80}>
-            <article className="service-card rounded-[30px] p-7">
-              <p className="text-xs uppercase tracking-[0.3em] text-[var(--color-gold)]">
-                {item.title}
-              </p>
-              <p className="mt-4 text-sm leading-8 text-[var(--color-mist)]">{item.body}</p>
-              <Link href={item.href} className="button-secondary mt-8">
-                {item.label}
-              </Link>
-            </article>
-          </Reveal>
-        ))}
+      <section className="mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-8 lg:grid-cols-3">
+          {contactCards.map((item, index) => (
+            <Reveal key={item.title} delay={index * 80}>
+              <article className="quote-panel h-full">
+                <p className="text-xs font-semibold uppercase tracking-[0.34em] text-[var(--color-gold)]">
+                  {item.title}
+                </p>
+                <p className="mt-4 text-sm leading-8 text-[var(--color-mist)]">
+                  {item.body}
+                </p>
+                <Link href={item.href} className="button-secondary mt-8">
+                  {item.label}
+                </Link>
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </section>
 
-      <section className="mx-auto mt-20 max-w-5xl px-4 sm:px-6 lg:px-8">
+      <section className="mx-auto mt-24 max-w-5xl px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <SectionHeading
-            eyebrow="FAQ"
-            title="Helpful details before the first appointment."
-            description="The FAQ keeps the booking decision friction low and makes the demo feel closer to a real business rather than a static portfolio mock."
-            align="center"
-          />
+          <div className="border-t border-[var(--color-border)] pt-16 text-center">
+            <p className="editorial-label justify-center">FAQ</p>
+            <h2 className="section-title mx-auto mt-5 max-w-3xl">
+              Helpful details that keep the booking decision warm and low-friction.
+            </h2>
+          </div>
         </Reveal>
-        <div className="mt-10 space-y-4">
+
+        <div className="mt-10 divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
           {faqs.map((item, index) => (
             <Reveal key={item.question} delay={index * 70}>
-              <article className="surface-panel rounded-[26px] p-6 sm:p-7">
-                <h2 className="text-lg text-[var(--color-cream)]">{item.question}</h2>
-                <p className="mt-3 text-sm leading-8 text-[var(--color-mist)]">{item.answer}</p>
+              <article className="faq-row">
+                <h3 className="text-lg text-[var(--color-cream)]">{item.question}</h3>
+                <p className="text-sm leading-8 text-[var(--color-mist)]">{item.answer}</p>
               </article>
             </Reveal>
           ))}

@@ -6,9 +6,13 @@ export function SiteFooter() {
     <footer className="relative mt-24 border-t border-white/8">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[1.3fr_0.8fr_0.9fr] lg:px-8">
         <div className="max-w-md">
-          <p className="text-xs font-semibold uppercase tracking-[0.35em] text-[var(--color-gold)]">
-            Noir Bloom Studio
-          </p>
+          <div className="brand-mark brand-mark-footer">
+            <p className="brand-mark-kicker">Luxury Self-Care Lounge</p>
+            <p className="brand-mark-title">Noir Bloom</p>
+            <div className="brand-mark-detail">
+              <span>Studio</span>
+            </div>
+          </div>
           <h2 className="mt-4 font-serif-display text-3xl text-[var(--color-cream)]">
             Beauty rituals with an editorial point of view.
           </h2>
